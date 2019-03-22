@@ -9,20 +9,36 @@ module.exports = function(app){
         axios.get("https://techcrunch.com/").then(function(response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         const $ = cheerio.load(response.data);
-    
         // Now, we grab every h2 within an article tag, and do the following:
-        $("article h2").each(function(i, element) {
+        $(".post-block--unread", ".river").each(function(i, element){
             // Save an empty result object
             const result = {};
-    
+
             // Add the text and href of every link, and save them as properties of the result object
             result.title = $(this)
-            .children("a")
-            .text();
+            .find(".post-block__title__link")
+            .text()
+            .replace(/\s\s+/g, '');
+
             result.link = $(this)
-            .children("a")
+            .find(".post-block__title__link")
             .attr("href");
-    
+
+            result.author = $(this)
+            .find(".river-byline__authors")
+            .text()
+            .replace(/\s\s+/g, '');
+   
+            result.description = $(this)
+            .find(".post-block__content")
+            .text()
+            .replace(/\s\s+/g, '');
+         
+            result.image = $(this)
+            .find("img")
+            .attr("src");
+            console.log(result);
+
             // Create a new Article using the `result` object built from scraping
             db.Article.create(result)
             .then(function(dbArticle) {
