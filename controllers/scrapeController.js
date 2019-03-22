@@ -1,12 +1,12 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const db = require("./models");
+const db = require("../models");
 
 module.exports = function(app){
     // A GET route for scraping the echoJS website
     app.get("/scrape", function(req, res) {
         // First, we grab the body of the html with axios
-        axios.get("http://www.echojs.com/").then(function(response) {
+        axios.get("https://techcrunch.com/").then(function(response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         const $ = cheerio.load(response.data);
     

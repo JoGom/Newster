@@ -1,4 +1,4 @@
-const db = require("./models");
+const db = require("../models");
 
 module.exports = function(app){
     // Route for getting all Articles from the db
