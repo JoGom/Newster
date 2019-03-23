@@ -52,6 +52,7 @@ module.exports = function(app){
             .then(function(dbArticle) {
                 // View the added result in the console
                 console.log(dbArticle);
+                res.json({completed: true});
             })
             .catch(function(err) {
                 // If an error occurred, log it
@@ -59,4 +60,5 @@ module.exports = function(app){
             });
         });
     });
+    
 };
