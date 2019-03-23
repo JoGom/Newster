@@ -1,11 +1,11 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 // Initialize Express
 const app = express();
 // Require all models
@@ -20,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
