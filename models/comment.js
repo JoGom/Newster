@@ -11,10 +11,10 @@ const CommentSchema = new Schema({
   // `body` is of type String
   body: String,
   //reference to article
-  articleId: {
-    type: Schema.Types.ObjectId,
-    ref: "Article"
-  }
+  // articleId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Article"
+  // }
 });
 
 // This creates our model from the above schema, using mongoose's model method

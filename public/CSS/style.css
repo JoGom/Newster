@@ -28,3 +28,20 @@ textarea {
   height: 200px;
   font-size: 18px;
 } */
+.card{
+    margin: 0px;
+}
+.cardContainer{
+    float: left;
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+#articles{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+.commentContainer{
+}
