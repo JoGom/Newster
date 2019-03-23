@@ -31,8 +31,8 @@ app.set("view engine", "handlebars");
 
 // Routes
 // require controller
-require('./controllers/newsController.js')(app);
-require('./controllers/scrapeController.js')(app)
+require('./routes/apiRoutes')(app);
+require('./routes/viewRoutes')(app);
 
 
 // Start the server
