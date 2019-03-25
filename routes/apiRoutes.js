@@ -62,7 +62,7 @@ module.exports = function(app){
     });
 
     app.put("/api/article/:id", (req, res) => {
-        console.log(req);
+        console.log(req.body);
         return db.Article.updateOne({_id: req.params.id}, {$set: {saved: req.body.saved}})
         .then(function(dbArticle) {
             // If we were able to successfully update an Article, send it back to the client

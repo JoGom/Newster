@@ -1,4 +1,5 @@
 <div id="wrapper">
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">NEWSLER</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +14,7 @@
             <a class="nav-link" href="/saved">Saved</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-primary" href="#">Scrape New Articles</a>
+            <a class="nav-link btn btn-primary" id="scrapeBtn">Scrape New Articles</a>
         </li>
         </ul>
     </div>
@@ -34,13 +35,33 @@
                 <p class="card-text">{{this.description}}</p>
                 <p>{{this.author}}</p>
                 <button class="btn btn-primary" id="unsaveArticle" data-id="{{this._id}}" >Unsave</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Comment</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Leave a Comment!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <textarea id='bodyinput' name='body'></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="commentBtn" data-id="{{this._id}}">Save changes</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
             </div>
             </div>
-            <div class="commentContainer">
+            <div class="commentContainer" data-id="{{this._id}}" id="{{this._id}}">
                 <h5>Comments:</h5>
                 <div>
-                    <p>hello</p>
-                    <p>Hello</p>
+       
                 </div>
             </div>
             </div>
@@ -48,4 +69,30 @@
     </div>
     <div id="notes"></div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Leave a Comment!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <textarea id='bodyinput' name='body'></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="commentBtn">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
 </div>
+
+
+
+
+

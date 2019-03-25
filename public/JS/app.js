@@ -28,7 +28,7 @@ $(document).ready(function() {
         })
             // With that done
             .then(function(data) {
-            // Log the response
+            // Log the response and reoload the home page
             location.reload();
             console.log(data);
             // Empty the notes section
@@ -42,7 +42,7 @@ $(document).ready(function() {
         $.ajax({
             method: "PUT",
             url: "/api/article/" + thisId,
-            data2: {
+            data: {
             // Value taken from note textarea
             saved: false
             }

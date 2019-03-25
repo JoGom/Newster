@@ -26,7 +26,7 @@ module.exports = function(app){
                 article: dbArticle
             };
             // console.log(`article objecy ${articleObj.article}`);
-            res.render("index", articleObj);
+            res.render("saved", articleObj);
         })
         .catch(function(err) {
             // If an error occurred, send it to the client
