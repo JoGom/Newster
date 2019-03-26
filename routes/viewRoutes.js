@@ -4,7 +4,7 @@ module.exports = function(app){
     // Route for getting all Articles from the db
     app.get("/", function(req, res) {
         // Grab every document in the Articles collection
-        db.Article.find({})
+        db.Article.find({}).sort({created_at: -1})
             .then(function(dbArticle) {
                 // If we were able to successfully find Articles, send them back to the client
                 const articleObj = {
